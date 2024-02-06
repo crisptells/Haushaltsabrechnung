@@ -14,11 +14,22 @@ public class App {
         while (true) {
             String command = inputScanner.nextLine();
             System.out.println(command);
+
+            //commands
             if (command.equals("quit")) {
-                System.out.print("??");
                 System.err.println("Bye Bye");
                 break;
             }
+
+            if (command.equals("add")) {
+                System.out.println("Bitte Eintrag Objektname, Gültige Monate 1-12, Gezahlter Betrag, Tatsächlich angefallener Betrag eingeben");
+                String neuerEintrag = inputScanner.nextLine();
+                String[] eintrag = neuerEintrag.split(",");
+                int index = abrechung.add_eintrag(new Eintrag(eintrag[0], Integer.parseInt(eintrag[1]), Double.parseDouble(eintrag[2]), Double.parseDouble(eintrag[3])));
+                System.out.println("Eintrag auf Stelle " + index + " gespeichert");
+            }
+
+            
         }
     }
 }
