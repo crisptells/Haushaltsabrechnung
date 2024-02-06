@@ -5,11 +5,15 @@ public class Haushaltsabrechnung {
     private HashMap<Integer, Eintrag> haushaltsabrechnung_table = new HashMap<Integer, Eintrag>();
     private int table_index;
 
-    public boolean add_eintrag() {
-        return true;
+    public int add_eintrag(Eintrag e) {
+        //eintrag adden
+        haushaltsabrechnung_table.put(table_index, e);
+        table_index++;
+        return table_index-1;
     }
 
-    public boolean delete_eintrag() {
+    public boolean delete_eintrag(int i) {
+        haushaltsabrechnung_table.remove(i);
         return true;
     }
 
