@@ -5,11 +5,11 @@ public class Eintrag {
     private double TatsaechlicherBetrag;
     private double Restbetrag;
 
-    public Eintrag(String objektname, int gueltigeMonate, double gezahlterBetrag, double tatsaechlicherBetrag) {
-        Objektname = objektname;
-        GueltigeMonate = gueltigeMonate;
-        GezahlterBetrag = gezahlterBetrag;
-        TatsaechlicherBetrag = tatsaechlicherBetrag;
+    public Eintrag(String objektname, int gueltigeMonate, double gezahlterBetrag, double tatsaechlicherBetrag) throws WrongInputException {
+        setObjektname(objektname);
+        setGueltigeMonate(gueltigeMonate);
+        setGezahlterBetrag(gezahlterBetrag);
+        setTatsaechlicherBetrag(tatsaechlicherBetrag);
     }
 
     //Getters
@@ -33,20 +33,30 @@ public class Eintrag {
     public void setObjektname(String objektname) {
         Objektname = objektname;
     }
-    public void setGueltigeMonate(int gueltigeMonate) {
+    public void setGueltigeMonate(int gueltigeMonate) throws WrongInputException {
         if (gueltigeMonate > 12 || gueltigeMonate < 1) {
-            System.err.println("Ungültige Monatsanzahl!");
-            return;
+            throw new WrongInputException("Ungültige Monazsanzahl!");
         }
         GueltigeMonate = gueltigeMonate;
     }
-    public void setGezahlterBetrag(double gezahlterBetrag) {
+    public void setGezahlterBetrag(double gezahlterBetrag) throws WrongInputException {
+        if (gezahlterBetrag < 0) {
+            throw new WrongInputException("Gezahlter Betrag kann nicht kleiner 0 sein!");
+        }
         GezahlterBetrag = gezahlterBetrag;
     }
-    public void setTatsaechlicherBetrag(double tatsaechlicherBetrag) {
+    public void setTatsaechlicherBetrag(double tatsaechlicherBetrag) throws WrongInputException {
+        if (tatsaechlicherBetrag < 0) {
+            throw new WrongInputException("Tatsächlich angefallener Betrag kann nicht kleiner 0 sein!");
+        }
         TatsaechlicherBetrag = tatsaechlicherBetrag;
     }
     public void setRestbetrag(double restbetrag) {
         Restbetrag = restbetrag;
+    }
+
+    //Calculation
+    public void calculate_difference(Eintrag eintrag) {
+        eintrag.setRestbetrag(eintrag.getTatsaechlicherBetrag() - eintrag.getGezahlterBetrag()); 
     }
 }
