@@ -18,7 +18,7 @@ public class Haushaltsabrechnung {
     }
 
     public HashMap<Integer, Eintrag> get_Abrechnung() {
-        return null;
+        return haushaltsabrechnung_table;
     }
 
     public Eintrag get_Eintrag(int index) {

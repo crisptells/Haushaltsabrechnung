@@ -10,6 +10,7 @@ public class Eintrag {
         setGueltigeMonate(gueltigeMonate);
         setGezahlterBetrag(gezahlterBetrag);
         setTatsaechlicherBetrag(tatsaechlicherBetrag);
+        setRestbetrag(calculate_difference(gezahlterBetrag, tatsaechlicherBetrag, gueltigeMonate));
     }
 
     //Getters
@@ -56,7 +57,7 @@ public class Eintrag {
     }
 
     //Calculation
-    public void calculate_difference(Eintrag eintrag) {
-        eintrag.setRestbetrag(eintrag.getTatsaechlicherBetrag() - eintrag.getGezahlterBetrag()); 
+    public double calculate_difference(double gezBetrag, double tatBetrag, int monate) {
+        return ((tatBetrag / 12) * monate) - gezBetrag;
     }
 }

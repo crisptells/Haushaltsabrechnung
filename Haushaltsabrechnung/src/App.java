@@ -1,8 +1,10 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
+        Printer printer = new Printer();
         Haushaltsabrechnung abrechung = new Haushaltsabrechnung();
         Scanner inputScanner = new Scanner(System.in);
         String username;
@@ -13,8 +15,6 @@ public class App {
 
         while (true) {
             String command = inputScanner.nextLine();
-            System.out.println(command);
-
             //commands
             if (command.equals("quit")) {
                 System.err.println("Bye Bye");
@@ -28,8 +28,9 @@ public class App {
                 int index = abrechung.add_eintrag(new Eintrag(eintrag[0], Integer.parseInt(eintrag[1]), Double.parseDouble(eintrag[2]), Double.parseDouble(eintrag[3])));
                 System.out.println("Eintrag auf Stelle " + index + " gespeichert");
             }
-
-            
         }
+
+        printer.printAbrechnung(abrechung);
+
     }
 }
