@@ -29,10 +29,9 @@ public class Printer {
             System.out.printf("⌞-------------------------------------------------------------------⌟%n");
             } else {
             System.out.printf("|-------------------------------------------------------------------|%n");
-            System.out.printf("| %-20s | %-6s | %7s | %10s | %19 |%n", "Gesamtbeträge", "------",  abrechnung.getSummeGezBetr(), abrechnung.getSummeTatBetr(), "\u001B[31m" + offenerBetrag + "\u001B[0m");
+            System.out.printf("| %-20s | %-6s | %7s | %10s | %19s |%n", "Gesamtbeträge", "------",  abrechnung.getSummeGezBetr(), abrechnung.getSummeTatBetr(), "\u001B[31m" + offenerBetrag + "\u001B[0m");
             System.out.printf("⌞-------------------------------------------------------------------⌟%n");
             }
-            
         }
     }
 }

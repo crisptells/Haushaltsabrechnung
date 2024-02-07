@@ -4,6 +4,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         Printer printer = new Printer();
+        Saver saver = new Saver();
         Haushaltsabrechnung abrechung = new Haushaltsabrechnung();
         Scanner inputScanner = new Scanner(System.in);
         String username;
@@ -20,13 +21,22 @@ public class App {
                 break;
             }
 
-            if (command.equals("add")) {
+            if (command.equals("add") || command.equals("hinzufügen")) {
                 System.out.println("Bitte Eintrag Objektname, Gültige Monate 1-12, Gezahlter Betrag, Tatsächlich angefallener Betrag eingeben");
                 String neuerEintrag = inputScanner.nextLine();
                 String[] eintrag = neuerEintrag.split(",");
                 int index = abrechung.add_eintrag(new Eintrag(eintrag[0], Integer.parseInt(eintrag[1]), Double.parseDouble(eintrag[2]), Double.parseDouble(eintrag[3])));
                 System.out.println("Eintrag auf Stelle " + index + " gespeichert");
             }
+
+            if (command.equals("save")) {
+                saver.save(abrechung);
+            }
+
+            if (command.equals("print")) {
+                printer.printAbrechnung(abrechung); 
+            }
+
         }
         inputScanner.close();
         printer.printAbrechnung(abrechung);
