@@ -1,4 +1,3 @@
-import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -29,7 +28,7 @@ public class App {
                 System.out.println("Eintrag auf Stelle " + index + " gespeichert");
             }
         }
-
+        inputScanner.close();
         printer.printAbrechnung(abrechung);
 
     }
