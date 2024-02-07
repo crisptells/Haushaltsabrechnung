@@ -8,7 +8,7 @@ public class Saver {
     //placeholder code
     //wäre cool wenn der saver abhängig vom username dateien läd. Sodass mehrere leute gleichzeitig was machen könenn
     public boolean save(Haushaltsabrechnung h) throws FileNotFoundException {
-        try (PrintWriter out = new PrintWriter("Haushaltsh.txt")) {
+        try (PrintWriter out = new PrintWriter("Haushaltsabrechnung.txt")) {
             Set<Entry<Integer, Eintrag>> entrySet = h.get_Abrechnung().entrySet();
             out.printf("⌜------------------------Haushaltsabrechnung------------------------⌝%n");
             out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", "Objektname", "Monate", "Gezahlt", "Angefallen", "Restbetrag");
