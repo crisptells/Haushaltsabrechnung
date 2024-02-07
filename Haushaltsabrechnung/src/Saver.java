@@ -19,7 +19,7 @@ public class Saver {
                 out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", eintrag.getObjektname(), eintrag.getGueltigeMonate(),  eintrag.getGezahlterBetrag(), eintrag.getTatsaechlicherBetrag(), eintrag.getRestbetrag());
             }
             out.printf("|-------------------------------------------------------------------|%n");
-            out.printf("| %-20s | %-6s | %7s | %10s | %19s |%n", "Gesamtbeträge", "------",  h.getSummeGezBetr(), h.getSummeTatBetr(), h.getOffenerBetrag());
+            out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", "Gesamtbeträge", "------",  h.getSummeGezBetr(), h.getSummeTatBetr(), h.getOffenerBetrag());
             out.printf("⌞-------------------------------------------------------------------⌟%n");
             
         }

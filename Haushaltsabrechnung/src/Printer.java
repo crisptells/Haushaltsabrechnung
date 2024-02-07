@@ -3,11 +3,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Printer {
-    public Printer() {
-        System.out.println("First Print!");
-
-    }
-
     public void printAbrechnung (Haushaltsabrechnung abrechnung) {
         //for loop durch H durch - dann pro eintrag einmal alles in einen String und output!
         Set<Entry<Integer, Eintrag>> entrySet = abrechnung.get_Abrechnung().entrySet();
