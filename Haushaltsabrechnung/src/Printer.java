@@ -14,7 +14,7 @@ public class Printer {
         if (entrySet.size() == 0) {
             System.out.println("Haushaltsabrechnung leer!");
         } else {
-            System.out.printf("|------------------------Haushaltsabrechnung------------------------|%n");
+            System.out.printf("⌜------------------------Haushaltsabrechnung------------------------⌝%n");
             System.out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", "Objektname", "Monate", "Gezahlt", "Angefallen", "Restbetrag");
             System.out.printf("|-------------------------------------------------------------------|%n");
             for (Map.Entry<Integer, Eintrag> entry : entrySet) {
@@ -22,9 +22,17 @@ public class Printer {
                 //System.out.println(entry.getKey() +" | " + eintrag.getObjektname() + " | " + eintrag.getGueltigeMonate() + " | " + eintrag.getGezahlterBetrag() + " | " + eintrag.getTatsaechlicherBetrag() + " | " + eintrag.getRestbetrag()+ " |");
                 System.out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", eintrag.getObjektname(), eintrag.getGueltigeMonate(),  eintrag.getGezahlterBetrag(), eintrag.getTatsaechlicherBetrag(), eintrag.getRestbetrag());
             }
+            double offenerBetrag = abrechnung.getOffenerBetrag();
+            if (offenerBetrag <= 0) {
             System.out.printf("|-------------------------------------------------------------------|%n");
-            System.out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", "Gesamtbeträge", "------",  "demo", "demo", "demo");
+            System.out.printf("| %-20s | %-6s | %7s | %10s | %19s |%n", "Gesamtbeträge", "------",  abrechnung.getSummeGezBetr(), abrechnung.getSummeTatBetr(), "\u001B[32m" + offenerBetrag + "\u001B[0m");
+            System.out.printf("⌞-------------------------------------------------------------------⌟%n");
+            } else {
             System.out.printf("|-------------------------------------------------------------------|%n");
+            System.out.printf("| %-20s | %-6s | %7s | %10s | %19 |%n", "Gesamtbeträge", "------",  abrechnung.getSummeGezBetr(), abrechnung.getSummeTatBetr(), "\u001B[31m" + offenerBetrag + "\u001B[0m");
+            System.out.printf("⌞-------------------------------------------------------------------⌟%n");
+            }
+            
         }
     }
 }
