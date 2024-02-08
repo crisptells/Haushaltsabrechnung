@@ -20,9 +20,9 @@ public class App {
             password = inputScanner.nextLine();
             logged_in = userManager.loginUser(username, password);
             if (logged_in) {
-                System.out.println("\u001B[32m" + "Erfolgreich als " + username + " angemeldet! \u001B[0m");
+                System.out.println("\u001B[32m" + "Erfolgreich als " + username + " angemeldet! 😍 \u001B[0m");
             } else {
-                System.out.println("\u001B[31m" + "Benutzername oder Passwort falsch! \u001B[0m");
+                System.out.println("\u001B[31m" + "Benutzername oder Passwort falsch! 😖 \u001B[0m");
             }
         }
         
@@ -31,7 +31,7 @@ public class App {
             String command = inputScanner.nextLine();
             //commands
             if (command.equals("quit")) {
-                System.err.println("Bye Bye");
+                System.err.println("Bye Bye 👋");
                 break;
             }
 
@@ -40,7 +40,7 @@ public class App {
                 String neuerEintrag = inputScanner.nextLine();
                 String[] eintrag = neuerEintrag.split(",");
                 int index = abrechung.add_eintrag(new Eintrag(eintrag[0], Integer.parseInt(eintrag[1]), Double.parseDouble(eintrag[2]), Double.parseDouble(eintrag[3])));
-                System.out.println(ConsoleColors.GREEN_BACKGROUND + "Eintrag auf Stelle " + index + " gespeichert"+ConsoleColors.RESET);
+                System.out.println(ConsoleColors.GREEN_BACKGROUND + "Eintrag auf Stelle " + index + " gespeichert"+ConsoleColors.RESET +"✅");
             }
 
             if (command.equals("save")) {
