@@ -52,6 +52,19 @@ public class App {
             }
 
             if (command.equals("delete user")) {
+                System.out.println(ConsoleColors.RED + "are you sure you want to delete the current user " +ConsoleColors.RESET + username + ConsoleColors.RED + " ?");
+                if (inputScanner.nextLine().equals("y") || inputScanner.nextLine().equals("yes")) {
+                    userManager.deleteUser(username, password);
+                    System.out.println(ConsoleColors.RED + "user " +ConsoleColors.RESET + username + ConsoleColors.RED + " deleted!");
+                } else {
+                    System.out.println(ConsoleColors.RED + "deletion aborted!");
+                }
+            }
+
+            if (command.equals("createUser")) {
+                System.out.println(ConsoleColors.RED + "Bitte Benutzername,Passwort eingeben" +ConsoleColors.RESET);
+                String[] loginInfo = inputScanner.nextLine().split(",");
+                userManager.createUser(loginInfo[0], loginInfo[1]);
                 
             }
 

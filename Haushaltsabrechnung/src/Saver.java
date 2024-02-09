@@ -21,7 +21,6 @@ public class Saver {
             out.printf("|-------------------------------------------------------------------|%n");
             out.printf("| %-20s | %-6s | %7s | %10s | %10s |%n", "Gesamtbeträge", "------",  h.getSummeGezBetr(), h.getSummeTatBetr(), h.getOffenerBetrag());
             out.printf("⌞-------------------------------------------------------------------⌟%n");
-            
         }
         return true;
     }
